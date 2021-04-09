@@ -1,0 +1,41 @@
+<div class="card-group">
+  <div class="card mb-4 bg-gold p-5">
+    <!-- <app-checkout-form [hidden]="!showCheckout" [quantity]="quantity" [checkoutItem]="item"></app-checkout-form> -->
+    <div class="feature text-center">
+      <img src="../../../assets/portfolio/heart-3339762_1920.jpg" alt="heart necklace" id="prodImg">
+      <div class="flex-container">
+        <div class="thumbnail">
+          thumbnail preview
+        </div>
+        <div class="thumbnail">
+          thumbnail preview
+        </div>
+        <div class="thumbnail">
+          thumbnail preview
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <div class="card mb-4 bg-saddle p-5 text-center">
+    <div class="card-title">
+      <!-- <div class="feature  p-3 m-3">
+        <img src="../../../assets/portfolio/glass-665376_1920.jpg" alt="Jewelry" style="width:200px; height: 200px;">
+      </div> -->
+      <h3>{{product?.name | titlecase}}</h3></div>
+    <div class="card-body">
+      <h4>{{product?.price | currency}}</h4>
+      <p class="small">{{product?.description}}</p>
+      <div>
+            <button class="btn btn-outline-gold btn-lg" [disabled]="isOne" (click)="decrease()"><b>&minus;</b></button>
+            <input type="text" placeholder="1" value="{{quantity}}" name="quantity" readonly class="form-control-custom">
+            <button class="btn btn-outline-gold btn-lg" (click)="increase()"><b> + </b></button>
+            <hr/>
+            <button class="btn btn-lg col-5 btn-fuschia" [disabled]="isOne" (click)="checkout(quantity)">Checkout</button>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,8 @@
+<div class="card-title m-3">
+  <h4 class="my-0 font-weight-bold text-gold">{{productName}}</h4>
+</div>
+<div class="card-body">
+  <h4 class="card-title pricing-card-title">{{price | currency}} </h4>
+  <p>{{prodDesc}}</p>
+  <button type="button" class="btn btn-lg btn-block btn-fuschia" (click)="routeTo({id: id,name:productName, price: price, desc: prodDesc})">Buy</button>
+</div>

@@ -1,0 +1,107 @@
+  <div class="card-body">
+    <div [hidden]="!showOrder">
+      <h1>Checkout</h1>
+      <hr/>
+      <h3>Customer Detail</h3>
+      <hr/>
+       <div class="form-group row">
+         <div class="col-3"><label>Firstname:</label></div>
+         <div class="col-9"><input type="text" class="form-control-custom-bottom" autocomplete="off"></div>
+       </div>
+       <div class="form-group row">
+        <div class="col-3"><label>Middle name:</label></div>
+        <div class="col-9"><input type="text" class="form-control-custom-bottom" autocomplete="off"></div>
+      </div>
+      <div class="form-group row">
+        <div class="col-3"><label>Lastname:</label></div>
+        <div class="col-9"><input type="text" class="form-control-custom-bottom" autocomplete="off"></div>
+      </div>
+      <div class="form-group row">
+        <div class="col-3"><label>Mobile Number:</label></div>
+        <div class="col-9"><input type="text" class="form-control-custom-bottom" autocomplete="off"></div>
+      </div>
+      <div class="form-group row">
+        <div class="col-3"><label>Email:</label></div>
+        <div class="col-9"><input type="text" class="form-control-custom-bottom" autocomplete="off"></div>
+      </div>
+      <hr/>
+      <h3>Shipping Detail</h3>
+      <hr/>
+       <div class="form-group row">
+         <div class="col-3"><label>Unit/House No:</label></div>
+         <div class="col-9"><input type="text" class="form-control-custom-bottom" autocomplete="off"></div>
+       </div>
+       <div class="form-group row">
+        <div class="col-3"><label>Street/Brgy:</label></div>
+        <div class="col-9"><input type="text" class="form-control-custom-bottom" autocomplete="off"></div>
+      </div>
+      <div class="form-group row">
+        <div class="col-3"><label>City:</label></div>
+        <div class="col-9"><input type="text" class="form-control-custom-bottom"></div>
+      </div>
+      <div class="form-group row">
+        <div class="col-3"><label>Postal/Zip:</label></div>
+        <div class="col-9"><input type="text" class="form-control-custom-bottom"></div>
+      </div>
+      <div class="form-group row">
+        <div class="col-3"><label>Landmark:</label></div>
+        <div class="col-9"><textarea type="text" class="form-control-custom-bottom" autocomplete="off"></textarea></div>
+      </div>
+      <hr/>
+      <h3>Payment Detail</h3>
+      <div class="form-group row">
+        <div class="col-3"><label>Mode of Payment:</label></div>
+        <div class="col-9"><select class="form-control-custom full">
+          <option>Credit Card/Debit</option>
+          <option>Cash On Delivery</option>
+          <option>E-Wallet</option>
+          <option>BTC</option>
+        </select></div>
+      </div>
+      <hr/>
+      <h3>Checkout Detail</h3>
+      <hr/>
+      <h4>Items</h4>
+      <table width="100%">
+        <thead>
+          <th align="center">Product Name</th>
+        <th align="center">Unit Price</th>
+        <th align="center">Quantity</th>
+        <th align="center">Action</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let o of orders; let i = index">
+            <td align="left">{{o.name}}</td>
+            <td align="center">{{o.price |currency}}</td>
+            <td align="left">
+              <button class="btn btn-gold-line btn-sm" [disabled]="isOne" (click)="decrease(i, o.quantity, o.price)"><b>&minus;</b></button>
+
+              <span class="btn btn-gold-line disabled btn-sm">{{o.quantity}}</span>
+
+              <button class="btn btn-gold-line btn-sm" (click)="increaseItem(i, o.quantity, o.price)"><b> + </b></button>
+
+            </td>
+            <td align="center">
+              <button class="btn btn-outline-gold btn-sm" (click)="removeItem(o.quantity, o.price, i)">&minus;</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+        <p class="text-right">Total Item Price: <b>{{totalPrice | currency}}</b></p>
+        <p class="text-right">Shipping fee: <b>{{shippingFee | currency}}</b></p>
+        <p class="text-right">Total Price: <b>{{ shippingFee + totalPrice | currency}}</b></p>
+        <div class="text-right">
+          <button class="btn btn-md col-xs-5 btn-outline-gold btn-shipping" (click)="continueShopping()">Continue Shopping</button>
+
+          <button [ngClass]="{'disabled': proceed === false}" class="btn btn-md col-xs-5 btn-fuschia btn-shipping" [disabled]="!proceed" (click)="saveOrder()">Proceed</button>
+        </div>
+    </div>
+
+      <div [hidden]="showOrder" class="card bg-gold m-3 py-3 p-3 text-center">
+        <div  class="card-body m-5">
+           <h3>Thank you for placing your order, we will ship it within 3-5 business days right at your door.</h3>
+           <button class="btn btn-lg btn-fuschia" (click)="continueShopping()">Continue Shopping</button>
+        </div>
+      </div>
+</div>
+
