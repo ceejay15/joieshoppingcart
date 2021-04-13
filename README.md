@@ -10,7 +10,7 @@ Features:
 5. Disabled button when quantity is 0                                     ( Done )
 6. Reduce/Increase specific product quantity on Checkout                  ( Done )
 7. Passing updated quantity to Cart Basket                                ( Done )
-8. Disable Reduce/Increase button on specific product on checkout         ( Not yet started at the time of repo creation )
+8. Disable Reduce/Increase button on specific product on checkout         ( Done )
 9. View Product Catalog                                                   ( Not yet started at the time of repo creation )
 10. Product Listing                                                       ( Done )
 11. Catalog Listing                                                       ( Done )

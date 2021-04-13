@@ -16,6 +16,12 @@ export class ProductComponent implements OnInit {
   showCheckout = false;
   item : any;
   overAllQuantity;
+  isOpen = false;
+
+  totalItemPrice = 0;
+
+  inStock = true;
+  stock = 0;
 
   @Output ('update')  change :EventEmitter<number> = new EventEmitter<number>();
 
@@ -23,6 +29,29 @@ export class ProductComponent implements OnInit {
     this.order.quantity.subscribe(q=>{
       this.overAllQuantity = q;
     })
+
+    this.order.isOpen.subscribe(o=>{
+      this.isOpen = o;
+
+      console.log("open ba si Program?");
+    })
+
+    this.order.totalItemPrice.subscribe(total=>{
+      this.totalItemPrice = total;
+      console.log("this.totalItemPrice ", this.totalItemPrice);
+    })
+
+    this.order.inStock.subscribe(inStock=>{
+      this.inStock = inStock;
+
+      console.log('in stock',this.inStock);
+    })
+
+    // this.order.stock.subscribe(stock=>{
+    //   this.stock = stock;
+    //   console.log("no of stocks ", this.stock);
+    // })
+
   }
 
   ngOnInit():void {
@@ -39,31 +68,29 @@ export class ProductComponent implements OnInit {
   }
 
   increase(){
+
     this.quantity = this.quantity + 1;
 
     if(this.quantity >=1){
       this.isOne = false;
     }
+
+    console.log("orders", this.order.getFromStorage());
+
+    //console.log("Order ni Karen ",this.product.stock);
   }
 
   checkout(quantity){
     this.showCheckout = true;
-    //this.quantity = quantity;
 
-    // this.item = {
-    //   quantity : this.quantity,
-    //   id: this.product.id,
-    //   name: this.product.name,
-    //   description: this.product.description,
-    //   price : this.product.price
-    // }
-
-   this.item  = {
+    this.item  = {
      quantity : quantity,
      id: this.product.id,
      name: this.product.name,
      description: this.product.description,
-     price : this.product.price
+     price : this.product.price,
+     stockId : this.product.stockId,
+     stock: this.product.stock
    }
 
    console.log("QQQ", this.overAllQuantity + quantity);
@@ -74,13 +101,17 @@ export class ProductComponent implements OnInit {
 
    this.order.setQuantity(this.overAllQuantity + quantity)
 
-    this.order.setTotalItemPrice(this.product.price, quantity);
+   this.totalItemPrice += this.product.price * quantity;
+
+    this.order.setTotalItemPrice(this.totalItemPrice);
 
     this.showCheckout = true;
 
     this.order.enableChkOut();
 
-    // this.change.emit(this.quantity);
+    this.order.setIsOpen(true);
+
+    this.order.setInStock(this.inStock);
    }
 
 }

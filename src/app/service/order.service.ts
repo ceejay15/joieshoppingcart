@@ -5,15 +5,24 @@ import {Observable, BehaviorSubject} from 'rxjs';
   providedIn: 'root'
 })
 export class OrderService {
-
-
   orders = [];
   //quantity = 0;
-  totalItemPrice = 0;
+  //totalItemPrice = 0;
 
   private _quantity: BehaviorSubject<number> = new BehaviorSubject<number>(null);
   public quantity: Observable<number> = this._quantity.asObservable();
 
+  private _isOpen : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
+  public isOpen :Observable<boolean> = this._isOpen.asObservable();
+
+  private _totalItemPrice : BehaviorSubject<any> = new BehaviorSubject<number>(0);
+  public  totalItemPrice : Observable<any> = this._totalItemPrice.asObservable();
+
+  private _inStock : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  public inStock : Observable<boolean> = this._inStock.asObservable();
+
+  private _stock : BehaviorSubject <number> = new BehaviorSubject<number>(null);
+  public stock : Observable<number> = this._stock.asObservable();
 
   enableChk : boolean = true;
 
@@ -75,82 +84,93 @@ export class OrderService {
    this._quantity.next(quantity);
   }
 
+  setIsOpen(isOpen){
+    this._isOpen.next(isOpen);
+  }
 
 
   getQuantity(){
     return this.quantity;
   }
 
+  setInStock(inStock){
+    this._inStock.next(inStock);
+  }
+
+  setStock(stock){
+    this._stock.next(stock);
+  }
 
 
-  setTotalItemPrice(price, quantity){
-    this.totalItemPrice += price * quantity;
+
+  setTotalItemPrice(total){
+    //this._totalItemPrice.value += price * quantity;
+    //console.log("__________", this.totalItemPrice);
+
+    //this._totalItemPrice.next(totalPrice);
+
+    console.log("____", total);
+
+    this._totalItemPrice.next(total);
+
   }
 
   getTotalPrice(){
     return this.totalItemPrice;
   }
 
-  removeFromOrder(index,quantity, price){
+  removeFromOrder(index,quantity, price, totalPrice){
       this.orders.splice(index,1);
 
-      // //this.quantity = this.quantity - quantity;
-       let t = this.totalItemPrice - (price  * quantity);
+      let t =  totalPrice - (price * quantity);
 
-       this.totalItemPrice = t;
-      console.log("remove totalPrice", this.totalItemPrice);
+      console.log("total Price", t);
+
+      this.setTotalItemPrice(t);
 
   }
 
-  decreaseItemQuantity(index, price){
+  decreaseItemQuantity(index, price, totalPrice){
 
     if(this.orders[index]['quantity'] > 1){
 
       this.orders[index]['quantity'] -= 1;
 
-      //console.log('good as',this.orders[index]['quantity']);
-
-      //console.log(this.orders[index]['quantity'] * parseInt(price), this.totalItemPrice);
-
       let priceQuantity = this.orders[index]['quantity'] *parseInt(price);
 
-      //console.log("priceQuantity", priceQuantity, this.totalItemPrice - priceQuantity);
+      console.log("priceQuantity", priceQuantity, totalPrice);
 
-      let tp = this.totalItemPrice - priceQuantity;
+       let tp = totalPrice - priceQuantity;
 
-      this.totalItemPrice = tp;
-
-      //console.log("tppp ",this.totalItemPrice);
-
+     this.setTotalItemPrice(tp);
 
     }else{
       console.log("isflays");
 
-      let t = this.totalItemPrice - (parseInt(price) * this.orders[index]['quantity']);
+      this.setTotalItemPrice(totalPrice - (parseInt(price) * this.orders[index]['quantity']));
 
       this.orders.splice(index,1);
-
-      this.totalItemPrice = t;
 
     }
   }
 
-  increaseItemQuantity(index, price){
+  increaseItemQuantity(index, price, totalPrice){
 
     this.orders[index]['quantity'] += 1;
 
     if(this.orders.length > 1){
-      this.totalItemPrice = this.totalItemPrice + parseInt(price);
+      // this.totalItemPrice = this.totalItemPrice + parseInt(price);
+      // console.log("final", this.totalItemPrice);
+      totalPrice = totalPrice + parseInt(price);
 
-      console.log("final", this.totalItemPrice);
+      this.setTotalItemPrice(totalPrice);
     }else{
-       let t = (parseInt(price) * this.orders[index]['quantity']);
+        let t = (parseInt(price) * this.orders[index]['quantity']);
+      // console.log(" to", t);
+      // this.totalItemPrice = (t - this.totalItemPrice) * this.orders[index]['quantity'];
+      // console.log("final",this.totalItemPrice);
 
-      console.log(" to", t);
-
-      this.totalItemPrice = (t - this.totalItemPrice) * this.orders[index]['quantity'];
-
-      console.log("final",this.totalItemPrice);
+      this.setTotalItemPrice((t - totalPrice) * (this.orders[index]['quantity']));
     }
   }
 
@@ -160,7 +180,6 @@ export class OrderService {
     }else{
       this.enableChk = false;
     }
-    //console.log(this.enableChk);
 
     return this.enableChk;
   }

@@ -166,17 +166,41 @@ body{
     background-color:1px solid rgba(0,0,0,.0)!important;
   }
 
-  .btn-fuschia{
+  .card :not(.checkout-portion) .btn.btn-fuschia{
     background-color:#E91488!important;
     color:#fff!important;
-    box-shadow:  10px 5px 5px #444;
+
     transition:ease-in-out 0.2s;
     border:none;
+    border-radius:0px;
+
+    box-shadow:  10px 5px 2px rgb(51, 51, 51, 0.2);
   }
 
-  .card.btn-fuschia:hover, .card >form.btn-fuschia:hover{
+  .card:not(.checkout-portion)  .btn.btn-fuschia:not(.disabled):hover{
+    box-shadow:  10px 10px 5px rgb(51, 51, 51, 0.2);
+  }
+
+  /* .card.btn-fuschia:hover, .card >form.btn-fuschia:hover{
      background-color:#daa520!important;
      box-shadow:  10px 10px 5px #333
+  } */
+
+  .shipping :where(.btn-fuschia), .btn.btn-fuschia{
+    background-color:#E91488!important;
+    color:#fff!important;
+
+    transition:ease-in-out 0.2s;
+    border:none;
+    border-radius:0px;
+  }
+
+  .shipping :where(.btn-outline-gold, .btn-fuschia, .btn-shipping ){
+    box-shadow:  10px 5px 2px rgb(51, 51, 51, 0.2);
+  }
+  .shipping :where(.shipping):not(.disabled):hover{
+    /* background-color:#daa520!important; */
+    box-shadow:  10px 10px 5px rgb(51, 51, 51, 0.2);
   }
 
   .text-gold{
@@ -210,31 +234,53 @@ body{
     background-color: #daa520!important;
     border-radius:1px;
     color:#fff;
+    transition:ease-in-out 0.5s;
+  }
+
+  .btn.btn-outline-gold:not(.disabled):hover{
+    color: #fff !important;;
+    backdrop-filter: blur( 8.5px );
+    -webkit-backdrop-filter: blur( 8.5px );
+    box-shadow:  10px 0px 10px rgb(51, 51, 51, 0.2);
+  }
+
+  .bg-gold-line{
+    border:#daa520 1px solid;
+    margin: 0 2px;
+    padding: 6.5px 15px;
+    font-size: 12px;
   }
 
   .btn.btn-gold-line{
     border-color:#daa520!important;
     margin: 0 2px;
+    transition:ease-in-in 0.2s;
   }
 
-  .btn.btn-shipping{
+  .btn.btn-gold-line:hover{
+    background-color:#daa520;
+    backdrop-filter: blur( 8.5px );
+    -webkit-backdrop-filter: blur( 8.5px );
+    color:#fff;
+  }
+
+  /* .btn.btn-shipping{
     margin: 0 2px;
     color:#fff;
 
-    box-shadow:  10px 5px 5px #444;
+    box-shadow:  10px 5px 2px rgb(51, 51, 51, 0.2);
+
+    transition:ease-in-in 0.2s;
   }
 
   .btn.btn-shipping:hover{
     border-color:#daa520;
-    color: #a0522d!important;
-    background-color: rgb(255, 228, 196, 0.90)!important;
+    box-shadow:  10px 10px 5px rgb(51, 51, 51, 0.2);
 
-    box-shadow:  10px 10px 5px #333;
 
     backdrop-filter: blur( 8.5px );
     -webkit-backdrop-filter: blur( 8.5px );
-      transition:ease-in-in 0.2s;
-  }
+  } */
 
   .card.bg-dark-saddle{
     background-color:rgb(160, 82, 45, 0.10)!important;
@@ -260,4 +306,78 @@ body{
 
 
 
+  #tbl-checkout{
+    width: 100%;
+  }
 
+  #tbl-checkout th{
+      font-weight: 500;
+      font-size: 20px;
+      background-color: #E91488;
+      color:#fff;
+
+      padding: 10px 15px;
+      margin: 2px 0px;
+  }
+
+  .numbers{
+    text-align: right;
+  }
+
+  #tbl-checkout >.tbl-col-center{
+    text-align: center!important;
+  }
+
+  #tbl-checkout td{
+    font-weight: 100;
+    font-size: 18px;
+    padding: 10px 15px;
+    margin: 2px 0px;
+  }
+
+  #tbl-checkout tr{
+    border-bottom: 0.5px solid saddlebrown;
+  }
+
+  /* #tbl-checkout tr:nth-child(even){
+    background-color:bisque;
+  }
+
+  #tbl-checkout tr:nth-child(odd){
+    background-color:rgb(160, 82, 45, 0.1);
+  } */
+
+  .form-group label{
+    font-weight: 500;
+  }
+
+
+
+  .checkout-portion {
+    padding: 15px 15px;
+    margin: 15px 15px;
+    text-align:left;
+  }
+
+  .open-close-container{
+    display: none;
+    position: inherit;
+    z-index: 2;
+    transition: ease-in-out 3s;
+  }
+
+
+
+
+
+@media (min-width:300px) and (min-width: 500px){
+  .tbl-col-center btn.btn btn-gold-line{
+    padding: 0 0!important;
+    width: 20px!important;
+  }
+
+  .checkout-portion {
+    padding: 2px 2px;
+    margin: 2px 2px;
+  }
+}

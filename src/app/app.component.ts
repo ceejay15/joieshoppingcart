@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
+import {Router} from '@angular/router';
 import {OrderService} from './service/order.service';
 
 @Component({
@@ -12,12 +13,21 @@ export class AppComponent implements OnChanges{
   description = '';
   year = new Date();
 
-  constructor(private order: OrderService){
+  constructor(private order: OrderService, private router: Router){
 
   }
 
   ngOnChanges(changes : SimpleChanges){
 
+  }
+
+  home(){
+     this.order.setIsOpen(false);
+    this.router.navigateByUrl('');
+  }
+
+  cart(){
+    this.order.setIsOpen(true);
   }
 
 

@@ -1,3 +1,7 @@
+<div class="checkout-portion open-close-container" @myInsertRemoveTrigger *ngIf="isOpen">
+  Checkout Scroll down
+</div>
+<!-- <div class='btn btn-success' (click)="toggle()">Toggle</div> -->
 <div class="card bg-saddle">
   <div class="card-body" id="banner">
 
@@ -96,7 +100,7 @@
 <div class="container">
   <div class="card-deck mb-3 text-white text-center">
     <div *ngFor="let prod of products" class="card mb-4 bg-teal">
-        <app-product-item productName="{{prod.productName}}" price="{{prod.price}}" prodDesc="{{prod.prodDesc}}" id="{{prod.id}}"></app-product-item>
+        <app-product-item productName="{{prod.productName}}" price="{{prod.price}}" prodDesc="{{prod.prodDesc}}" id="{{prod.id}}" stockId="{{prod.stockId}}" stock="{{stock}}"></app-product-item>
     </div>
   </div>
 </div>

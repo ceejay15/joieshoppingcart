@@ -15,9 +15,15 @@ export class ProductItemComponent implements OnInit {
   @Input() id = 0;
   @Input() price = 0;
   @Input() prodDesc = '';
+  @Input() stockId = 0;
+  @Input() stock = 0;
+
+  isOpen = false;
 
   ngOnInit(): void {
-
+      this.order.isOpen.subscribe(o =>{
+        this.isOpen = o;
+      })
   }
 
   routeTo(obj){
@@ -25,10 +31,17 @@ export class ProductItemComponent implements OnInit {
       id: obj.id,
       name: obj.name,
       description: obj.desc,
-      price: obj.price
+      price: obj.price,
+      stockId: obj.stockId,
+      stock : obj.stock
     }
 
     this.order.setToStorage(product);
+    this.order.setIsOpen(this.isOpen);
+
+    if(obj.stock == 0){
+      this.order.setInStock(false);
+    }
     this.router.navigateByUrl('product', { state: product });
   }
 

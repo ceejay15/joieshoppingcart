@@ -2,6 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA , NO_ERRORS_SCHEMA} from '@angular/cor
 import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {RouteModule} from './route/route/route.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {OrderService} from './service/order.service';
 
@@ -31,7 +32,8 @@ import { CartComponent } from './components/cart/cart.component';
   imports: [
     BrowserModule,
     RouteModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule
   ],
   providers: [OrderService],
   bootstrap: [AppComponent],

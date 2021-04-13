@@ -1,5 +1,11 @@
-  <div class="card-body">
-    <div [hidden]="!showOrder">
+
+<div class="open-close-container mx-auto text-center p-5 py-5 my-5 mx-5"
+[@openClose]="isOpen ? 'open' : 'closed'"
+(@openClose.start)="onAnimationEvent($event)"
+(@openClose.done)="onAnimationEvent($event)">
+  <div class="card-body" id="chkout-card">
+    <div class="text-right"><button class='btn' (click)="closeCheckout()">Close <i class="fa fa-close"></i></button></div>
+    <div [hidden]="!showOrder" class="mx-auto checkout-portion m-5 my-5 mx-5">
       <h1>Checkout</h1>
       <hr/>
       <h3>Customer Detail</h3>
@@ -33,11 +39,18 @@
        </div>
        <div class="form-group row">
         <div class="col-3"><label>Street/Brgy:</label></div>
-        <div class="col-9"><input type="text" class="form-control-custom-bottom" autocomplete="off"></div>
+        <div class="col-9">
+          <input type="text" class="form-control-custom-bottom" autocomplete="off">
+        </div>
       </div>
       <div class="form-group row">
         <div class="col-3"><label>City:</label></div>
-        <div class="col-9"><input type="text" class="form-control-custom-bottom"></div>
+        <div class="col-9">
+          <select class="form-control-custom-bottom">
+            <option value=""></option>
+            <option *ngFor="let city of cities" value="{{city}}">{{city}}</option>
+          </select>
+        </div>
       </div>
       <div class="form-group row">
         <div class="col-3"><label>Postal/Zip:</label></div>
@@ -51,57 +64,62 @@
       <h3>Payment Detail</h3>
       <div class="form-group row">
         <div class="col-3"><label>Mode of Payment:</label></div>
-        <div class="col-9"><select class="form-control-custom full">
-          <option>Credit Card/Debit</option>
-          <option>Cash On Delivery</option>
-          <option>E-Wallet</option>
-          <option>BTC</option>
-        </select></div>
+          <div class="col-9">
+            <select class="form-control-custom full">
+              <option value="cc">Credit Card/Debit</option>
+              <option value="cod">Cash On Delivery</option>
+              <option value="ewallet">E-Wallet</option>
+              <option value="btc">BTC</option>
+            </select>
+          </div>
       </div>
       <hr/>
       <h3>Checkout Detail</h3>
       <hr/>
-      <h4>Items</h4>
-      <table width="100%">
-        <thead>
-          <th align="center">Product Name</th>
-        <th align="center">Unit Price</th>
-        <th align="center">Quantity</th>
-        <th align="center">Action</th>
-        </thead>
-        <tbody>
-          <tr *ngFor="let o of orders; let i = index">
-            <td align="left">{{o.name}}</td>
-            <td align="center">{{o.price |currency}}</td>
-            <td align="left">
-              <button class="btn btn-gold-line btn-sm" [disabled]="isOne" (click)="decrease(i, o.quantity, o.price)"><b>&minus;</b></button>
+      <div class="table-responsive">
+        <table id="tbl-checkout" class="table">
+          <thead>
+            <th>Product Name</th>
+          <th class="numbers">Unit Price</th>
+          <th class="tbl-col-center">Quantity</th>
+          <th class="tbl-col-center">Remove</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let o of orders; let i = index">
+              <td><b>{{o.name}}</b></td>
+              <td class="numbers"><b>{{o.price |currency}}</b></td>
+              <td class="tbl-col-center">
+                <button class="btn btn-gold-line btn-sm" [disabled]="isOne" (click)="decrease(i, o.quantity, o.price)"><b>&minus;</b></button>
 
-              <span class="btn btn-gold-line disabled btn-sm">{{o.quantity}}</span>
+                <span class="bg-gold-line">{{o.quantity}}</span>
 
-              <button class="btn btn-gold-line btn-sm" (click)="increaseItem(i, o.quantity, o.price)"><b> + </b></button>
+                <button class="btn btn-gold-line btn-sm" (click)="increaseItem(i, o.quantity, o.price)"><b> + </b></button>
 
-            </td>
-            <td align="center">
-              <button class="btn btn-outline-gold btn-sm" (click)="removeItem(o.quantity, o.price, i)">&minus;</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+              </td>
+              <td class="tbl-col-center text-danger">
+                <button class="btn btn-outline-danger  btn-sm" (click)="removeItem(o.quantity, o.price, i)"><b>x</b></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
         <p class="text-right">Total Item Price: <b>{{totalPrice | currency}}</b></p>
         <p class="text-right">Shipping fee: <b>{{shippingFee | currency}}</b></p>
         <p class="text-right">Total Price: <b>{{ shippingFee + totalPrice | currency}}</b></p>
-        <div class="text-right">
-          <button class="btn btn-md col-xs-5 btn-outline-gold btn-shipping" (click)="continueShopping()">Continue Shopping</button>
+        <div class="text-right shipping">
+          <button class="btn btn-lg m-2 btn-dark btn-shipping" (click)="continueShopping()">Continue Shopping</button>
 
-          <button [ngClass]="{'disabled': proceed === false}" class="btn btn-md col-xs-5 btn-fuschia btn-shipping" [disabled]="!proceed" (click)="saveOrder()">Proceed</button>
+          <button [ngClass]="{'disabled': proceed === false}" class="btn btn-lg btn-fuschia btn-shipping" [disabled]="!proceed" (click)="saveOrder()">Proceed</button>
         </div>
     </div>
 
-      <div [hidden]="showOrder" class="card bg-gold m-3 py-3 p-3 text-center">
+      <div [hidden]="showOrder" class="m-3 py-3 p-3 text-center">
         <div  class="card-body m-5">
            <h3>Thank you for placing your order, we will ship it within 3-5 business days right at your door.</h3>
            <button class="btn btn-lg btn-fuschia" (click)="continueShopping()">Continue Shopping</button>
         </div>
       </div>
+</div>
+
 </div>
 

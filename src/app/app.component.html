@@ -1,17 +1,18 @@
+
 <div class="d-flex flex-column flex-md-row align-items-center sticky-top p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
   <h3 class="my-0 mr-md-auto font-weight-normal" id="logo">
-    <a href="javascript:void('0')" [routerLink]="['/']" routerLinkActive="router-link-active" >
+    <a href="javascript:void('0')" (click)="home()">
       <div class="py-4 pb-n3">JOIE</div>
       <!-- <p class="mt-n4 text-white">Handmade Crafts & Accessories</p> -->
    </a>
   </h3>
   <nav class="my-2 my-md-0 mr-md-3">
-    <a class="p-2 text-dark" href="#">Account</a>
-    <a class="p-2 text-dark" href="#">Catalog</a>
-    <a><app-cart></app-cart></a>
-    <a class="btn btn-outline-primary" href="#">Sign up</a>
+    <a class="p-2 text-dark" href="javascript:void('0')">Account</a>
+    <a class="p-2 text-dark" (click)="cart()" href="javascript:void('0')">Catalog</a>
+    <a class="p-2 text-dark" href="javascript:void('0')"><app-cart></app-cart></a>
   </nav>
 </div>
+<div><app-checkout-form></app-checkout-form></div>
 <router-outlet></router-outlet>
 
 <div id="footer">
