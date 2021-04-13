@@ -8,12 +8,12 @@
   </h3>
   <nav class="my-2 my-md-0 mr-md-3">
     <a class="p-2 text-dark" href="javascript:void('0')">Account</a>
-    <a class="p-2 text-dark" (click)="cart()" href="javascript:void('0')">Catalog</a>
-    <a class="p-2 text-dark" href="javascript:void('0')"><app-cart></app-cart></a>
+    <a class="p-2 text-dark" href="javascript:void('0')">Catalog</a>
+    <a class="p-2 text-dark" href="javascript:void('0')" (click)="cart()"><app-cart></app-cart></a>
   </nav>
 </div>
 <div><app-checkout-form></app-checkout-form></div>
-<router-outlet></router-outlet>
+<div [hidden]="isOpen"><router-outlet></router-outlet></div>
 
 <div id="footer">
   <footer class="pt-4 my-md-5 pt-md-5">

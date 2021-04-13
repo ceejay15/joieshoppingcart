@@ -84,7 +84,7 @@ export class CheckoutFormComponent implements OnChanges {
   constructor(private order : OrderService, private router : Router) {
     this.order.isOpen.subscribe(o=>{
       this.isOpen = o;
-      console.log("is Open Toggle?");
+      console.log("is Open Toggle?", this.isOpen);
     })
 
     this.order.quantity.subscribe(q=>{

@@ -136,18 +136,18 @@ export class OrderService {
 
       this.orders[index]['quantity'] -= 1;
 
-      let priceQuantity = this.orders[index]['quantity'] *parseInt(price);
+     let priceQuantity = totalPrice - parseInt(price);
 
       console.log("priceQuantity", priceQuantity, totalPrice);
 
-       let tp = totalPrice - priceQuantity;
-
-     this.setTotalItemPrice(tp);
+     this.setTotalItemPrice(priceQuantity);
 
     }else{
       console.log("isflays");
 
-      this.setTotalItemPrice(totalPrice - (parseInt(price) * this.orders[index]['quantity']));
+      this.setTotalItemPrice(totalPrice - parseInt(price));
+
+      console.log(totalPrice - parseInt(price));
 
       this.orders.splice(index,1);
 

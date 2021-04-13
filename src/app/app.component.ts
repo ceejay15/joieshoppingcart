@@ -12,9 +12,13 @@ export class AppComponent implements OnChanges{
   catalogName = '';
   description = '';
   year = new Date();
+  isOpen = false;
 
   constructor(private order: OrderService, private router: Router){
-
+      this.order.isOpen.subscribe(o=>{
+        this.isOpen = o;
+       // console.log("is open?", o);
+      })
   }
 
   ngOnChanges(changes : SimpleChanges){
@@ -23,11 +27,12 @@ export class AppComponent implements OnChanges{
 
   home(){
      this.order.setIsOpen(false);
-    this.router.navigateByUrl('');
+     this.router.navigateByUrl('');
   }
 
   cart(){
     this.order.setIsOpen(true);
+    console.log("hello get checkout");
   }
 
 
