@@ -18,7 +18,7 @@ Features:
 13. Push Notification for email promo subscription                        ( N/A )
 14. Reusable Form                                                         ( N/A )
 15. Form Validation                                                       ( N/A )
-16. Angular State Redux (Store Management)                                ( In progress... )
+16. Angular State Redux (Store Management using NGRX)                     (In progress... )
 17. Pricing against decreased quantity bug fix                            (Done)
   
 Description: This is basic shopping cart only and focusing on front-end and UI/UX design, for demo purposes only. Back-end will follow on Phase Two including

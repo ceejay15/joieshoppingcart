@@ -16,6 +16,7 @@ import { CheckoutViewComponent } from './components/checkout/checkout-view/check
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { CartComponent } from './components/cart/cart.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CartComponent } from './components/cart/cart.component';
     BrowserModule,
     RouteModule,
     RouterModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [OrderService],
   bootstrap: [AppComponent],
