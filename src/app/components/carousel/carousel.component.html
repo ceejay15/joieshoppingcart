@@ -1,0 +1,19 @@
+<p-carousel [value]="carouselArr" [numVisible]="3" [numScroll]="1" [autoplayInterval]="3000" [circular]="true" [responsiveOptions]="responsiveOptions">
+  <ng-template pTemplate="header">
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">{{sliderTitle | titlecase}}</h1>
+    </div>
+</ng-template>
+<ng-template let-carouselArr pTemplate="item">
+    <div class="product-item">
+         <div class="product-item-content">
+          <img src="assets/carousel/{{carouselArr.image}}" [alt]="carouselArr.name" class="product-image" height="{{carouselArr.height}}" width="{{carouselArr.width}}"/>
+          <br/> <br/>
+          <h5 class="p-mb-1">{{carouselArr.name ? carouselArr.name : carouselArr.catalogName}}</h5>
+
+          <p [visible]="carouselArr.price" class="p-mt-0 p-mb-3">{{carouselArr.price | currency}}</p>
+          <p>{{carouselArr.description.substr(0,20)}} ...</p>
+        </div>
+  </div>
+</ng-template>
+</p-carousel>

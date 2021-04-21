@@ -4,6 +4,8 @@ import {RouterModule} from '@angular/router';
 import {RouteModule} from './route/route/route.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {CarouselModule} from 'primeng/carousel';
+
 import {OrderService} from './service/order.service';
 
 import { AppComponent } from './app.component';
@@ -17,6 +19,7 @@ import { CatalogComponent } from './components/catalog/catalog.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { CartComponent } from './components/cart/cart.component';
 import { StoreModule } from '@ngrx/store';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +31,15 @@ import { StoreModule } from '@ngrx/store';
     CheckoutViewComponent,
     CatalogComponent,
     ProductItemComponent,
-    CartComponent
+    CartComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
     RouteModule,
     RouterModule,
     BrowserAnimationsModule,
+    CarouselModule,
     StoreModule.forRoot({}, {})
   ],
   providers: [OrderService],

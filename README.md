@@ -5,7 +5,7 @@ This is a personal project working in progress Angular Shopping Cart (Phase One)
 Features:
 1. Add to Cart                                                            ( Done )
 2. View Product                                                           ( Done )
-3. Featured Product Multiple Slider                                       ( Not yet started at the time of repo creation )
+3. Featured Product Multiple Slider                                       ( Done - PrimeNG multi-carousel )
 4. Reduce/Increase quantity                                               ( Done )
 5. Disabled button when quantity is 0                                     ( Done )
 6. Reduce/Increase specific product quantity on Checkout                  ( Done )

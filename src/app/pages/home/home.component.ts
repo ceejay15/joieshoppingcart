@@ -3,6 +3,7 @@ import { Component, OnInit, OnChanges, SimpleChanges, HostBinding } from '@angul
 // import { slideInAnimation } from '../../animations/animations';
 import {OrderService} from '../../service/order.service';
 
+import  *  as  data  from  '../../json/jsonItems.json';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -80,9 +81,11 @@ export class HomeComponent{
     }
   ];
 
-
+  carouselArr = {};
   constructor(private order: OrderService) {
     console.log("HOME", this.quantity);
+    this.carouselArr['products'] = data?.products;
+    this.carouselArr['catalogs'] = data?.catalogs;
    }
 
 

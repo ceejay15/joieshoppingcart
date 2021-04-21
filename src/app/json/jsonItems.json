@@ -1,0 +1,109 @@
+{
+  "products":[
+    {
+      "name": "Moon Bracelet",
+      "price": 1000.00,
+      "stocks": 100,
+      "sku": "10101AAA",
+      "image":  "sparkle-685509_1920.jpg",
+      "description":"testing bracelet....",
+      "inventoryStatus" : "In-stock",
+      "height": 150,
+      "width" : 150
+    },
+    {
+      "name": "Sunflower Bracelet",
+      "price": 300.00,
+      "stocks": 100,
+      "sku": "10101BBB",
+      "image":  "glass-665380_1920.jpg",
+      "description":"testing bracelet....",
+      "inventoryStatus": "In-stock",
+      "height": 150,
+      "width" : 150
+    },
+    {
+      "name": "Star Bracelet",
+      "price": 500.00,
+      "stocks": 100.00,
+      "sku": "10101CCC",
+      "image":  "facet-1490208_1920.jpg",
+      "description":"testing bracelet....",
+      "inventoryStatus": "Lower in stock",
+      "height": 150,
+      "width" : 150
+    },
+    {
+      "name": "Flowers Bracelet",
+      "price": 1080.00,
+      "stocks": 100,
+      "sku": "10101DDD",
+      "image":  "chain-4139525_1920.jpg",
+      "description":"testing bracelet....",
+      "inventoryStatus" : "Enough Stock",
+      "height": 150,
+      "width" : 150
+    },
+    {
+      "name": "Moon-Sun Bracelet",
+      "price": 4000.00,
+      "stocks": 100,
+      "sku": "10101AAA",
+      "image":  "beads-3274566_1920.jpg",
+      "description":"testing bracelet....",
+      "inventoryStatus": "Lower in stock",
+      "height": 150,
+      "width" : 150
+    },
+    {
+      "name": "Jewel Bracelet",
+      "price": 5000.00,
+      "stocks": 100,
+      "sku": "10101YYY",
+      "image":  "beads-702250_1920.jpg",
+      "description":"testing bracelet....",
+      "inventoryStatus": "In-stock",
+      "height": 150,
+      "width" : 150
+    }
+
+  ],
+  "catalogs":[
+    {
+      "catalogName" : "Necklace",
+      "description" : "Our necklaces are made of glass and wooden beads, designed for simple and elegance suit for any occasion",
+      "image":  "beads-702250_1920.jpg",
+      "height": 150,
+      "width" : 150
+    },
+    {
+      "catalogName" : "Bracelet",
+      "description" : "Our bracelet are sized for any ages, designed for ageless style from vintage to modern trends",
+      "image":  "beads-3274566_1920.jpg",
+      "height": 150,
+      "width" : 150
+    },
+    {
+      "catalogName" : "Earrings",
+      "description" : "from danglers to simple wearable earrings, we designed them for any occasion and adorning woman to emphasize natural and regal beauty.",
+      "image":  "chain-4139525_1920.jpg",
+      "height": 150,
+      "width" : 150
+    },
+    {
+      "catalogName" : "Rings",
+      "description" : "from infinity to infinity that symbolizes bond, love, respect and precious memories",
+      "image":  "facet-1490208_1920.jpg",
+      "height": 150,
+      "width" : 150
+     },
+    {
+      "catalogName" : "Accessories",
+      "description" : "accessories of our day-to-day items to useful household like key chains, rugs, coaster, table runner, coin purse and more...",
+      "image":  "sparkle-685509_1920.jpg",
+      "height": 150,
+      "width" : 150
+    }
+  ]
+
+}
