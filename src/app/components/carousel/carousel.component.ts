@@ -1,4 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CatalogProductService } from 'src/app/service/catalog-product.service';
+import { OrderService } from 'src/app/service/order.service';
+// import { CatalogProductService } from '../../service/catalog-product.service';
+// import { OrderService } from '../../service/order.service';
+
 
 @Component({
   selector: 'app-carousel',
@@ -6,82 +12,63 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit {
-  // carouselArr = [
-  //   {
-  //     name: 'Moon Bracelet',
-  //     price: 1000.00,
-  //     stocks: 100.00,
-  //     sku: '10101AAA',
-  //     image:  'sparkle-685509_1920.jpg',
-  //     inventoryStatus : 'In-stock'
-  //   },
-  //   {
-  //     name: 'Sunflower Bracelet',
-  //     price: 300.00,
-  //     stocks: 100.00,
-  //     sku: '10101BBB',
-  //     image:  'glass-665380_1920.jpg',
-  //     inventoryStatus: 'In-stock'
-  //   },
-  //   {
-  //     name: 'Star Bracelet',
-  //     price: 500.00,
-  //     stocks: 100.00,
-  //     sku: '10101CCC',
-  //     image:  'facet-1490208_1920.jpg',
-  //     inventoryStatus: 'Lower in stock'
-  //   },
-  //   {
-  //     name: 'Flowers Bracelet',
-  //     price: 1080.00,
-  //     stocks: 100.00,
-  //     sku: '10101DDD',
-  //     image:  'chain-4139525_1920.jpg',
-  //     inventoryStatus :'Enough Stock'
-  //   },
-  //   {
-  //     name: 'Moon-Sun Bracelet',
-  //     price: 4000.00,
-  //     stocks: 100.00,
-  //     sku: '10101AAA',
-  //     image:  'beads-3274566_1920.jpg',
-  //     inventoryStatus: 'Lower in stock'
-  //   },
-  //   {
-  //     name: 'Jewel Bracelet',
-  //     price: 5000.00,
-  //     stocks: 100.00,
-  //     sku: '10101YYY',
-  //     image:  'beads-702250_1920.jpg',
-  //     inventoryStatus: 'In-stock'
-  //   }
 
-  // ];
-
-  @Input() carouselArr  = [];
+  @Input() carouselArr = [];
   @Input() sliderTitle = "";
+
   responsiveOptions = [
     {
-        breakpoint: '1024px',
-        numVisible: 3,
-        numScroll: 3
+      breakpoint: '1024px',
+      numVisible: 3,
+      numScroll: 3
     },
     {
-        breakpoint: '768px',
-        numVisible: 2,
-        numScroll: 2
+      breakpoint: '768px',
+      numVisible: 2,
+      numScroll: 2
     },
     {
-        breakpoint: '560px',
-        numVisible: 1,
-        numScroll: 1
+      breakpoint: '560px',
+      numVisible: 1,
+      numScroll: 1
     }
-];
+  ];
 
-  constructor() {
-   }
+  isOpen = false;
+
+  constructor(private router: Router, private cp: CatalogProductService, private order: OrderService) {
+  }
 
   ngOnInit(): void {
   }
 
+  showProductCatalog(id, obj, type) {
+
+    if (type === 'Our Catalogs') {
+      this.cp.setProductCatalogs(obj);
+      this.router.navigateByUrl('catalog-products');
+    } else {
+      const product = {
+        id: obj.id,
+        name: obj.name,
+        description: obj.description,
+        price: obj.price,
+        stockId: obj.sku,
+        stock: obj.stocks
+      };
+
+      this.order.setToStorage(product);
+      this.order.setIsOpen(this.isOpen);
+
+      if (obj.stocks === 0) {
+        this.order.setInStock(false);
+      }
+      this.router.navigateByUrl('product');
+    }
+
+  }
+
 }
+
+
+

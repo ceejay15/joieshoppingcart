@@ -1,6 +1,7 @@
 {
-  "products":[
+  "featured":[
     {
+      "id" : 1000,
       "name": "Moon Bracelet",
       "price": 1000.00,
       "stocks": 100,
@@ -9,9 +10,11 @@
       "description":"testing bracelet....",
       "inventoryStatus" : "In-stock",
       "height": 150,
-      "width" : 150
+      "width" : 150,
+      "catalog_id" : 1
     },
     {
+      "id" : 2001,
       "name": "Sunflower Bracelet",
       "price": 300.00,
       "stocks": 100,
@@ -20,9 +23,11 @@
       "description":"testing bracelet....",
       "inventoryStatus": "In-stock",
       "height": 150,
-      "width" : 150
+      "width" : 150,
+      "catalog_id" : 2
     },
     {
+      "id" : 2000,
       "name": "Star Bracelet",
       "price": 500.00,
       "stocks": 100.00,
@@ -31,9 +36,11 @@
       "description":"testing bracelet....",
       "inventoryStatus": "Lower in stock",
       "height": 150,
-      "width" : 150
+      "width" : 150,
+      "catalog_id" : 2
     },
     {
+      "id" : 4000,
       "name": "Flowers Bracelet",
       "price": 1080.00,
       "stocks": 100,
@@ -42,9 +49,11 @@
       "description":"testing bracelet....",
       "inventoryStatus" : "Enough Stock",
       "height": 150,
-      "width" : 150
+      "width" : 150,
+      "catalog_id" : 4
     },
     {
+      "id" : 5000,
       "name": "Moon-Sun Bracelet",
       "price": 4000.00,
       "stocks": 100,
@@ -53,9 +62,11 @@
       "description":"testing bracelet....",
       "inventoryStatus": "Lower in stock",
       "height": 150,
-      "width" : 150
+      "width" : 150,
+      "catalog_id" : 4
     },
     {
+      "id" : 6000,
       "name": "Jewel Bracelet",
       "price": 5000.00,
       "stocks": 100,
@@ -64,7 +75,8 @@
       "description":"testing bracelet....",
       "inventoryStatus": "In-stock",
       "height": 150,
-      "width" : 150
+      "width" : 150,
+      "catalog_id" : 5
     }
 
   ],
@@ -74,35 +86,358 @@
       "description" : "Our necklaces are made of glass and wooden beads, designed for simple and elegance suit for any occasion",
       "image":  "beads-702250_1920.jpg",
       "height": 150,
-      "width" : 150
+      "width" : 150,
+      "id" : 1,
+      "products" : [
+        {
+          "id" : 1000,
+          "name": "Moon Bracelet",
+          "price": 1000.00,
+          "stocks": 100,
+          "sku": "10101AAA",
+          "image":  "sparkle-685509_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus" : "In-stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 5,
+          "catalog_id" : 1
+        },
+        {
+          "id" : 1001,
+          "name": "Moon Bracelet B",
+          "price": 1000.00,
+          "stocks": 100,
+          "sku": "10101AAA",
+          "image":  "sparkle-685509_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus" : "In-stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 3,
+          "catalog_id" : 1
+        },
+        {
+          "id" : 1002,
+          "name": "Moon Bracelet C",
+          "price": 1030.00,
+          "stocks": 100,
+          "sku": "10101AAA",
+          "image":  "sparkle-685509_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus" : "In-stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 4,
+          "catalog_id" : 1
+        },
+        {
+          "id" : 1003,
+          "name": "Moon Bracelet D",
+          "price": 2000.00,
+          "stocks": 100,
+          "sku": "10101AAA",
+          "image":  "sparkle-685509_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus" : "In-stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 1,
+          "catalog_id" : 1
+        },
+        {
+          "id" : 10004,
+          "name": "Moon Bracelet E",
+          "price": 1000.00,
+          "stocks": 100,
+          "sku": "10101AAA",
+          "image":  "sparkle-685509_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus" : "In-stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 5,
+          "catalog_id" : 1
+        },
+        {
+          "id" : 1005,
+          "name": "Moon Bracelet F",
+          "price": 1000.00,
+          "stocks": 100,
+          "sku": "10101AAA",
+          "image":  "sparkle-685509_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus" : "In-stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 0,
+          "catalog_id" : 1
+        },
+        {
+          "id" : 1006,
+          "name": "Moon Bracelet G",
+          "price": 1000.00,
+          "stocks": 100,
+          "sku": "10101AAA",
+          "image":  "sparkle-685509_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus" : "In-stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 1,
+          "catalog_id" : 1
+        },
+        {
+          "id" : 10007,
+          "name": "Moon Bracelet H",
+          "price": 4500.00,
+          "stocks": 100,
+          "sku": "10101AAA",
+          "image":  "sparkle-685509_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus" : "In-stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 2,
+          "catalog_id" : 1
+        },
+        {
+          "id" : 1008,
+          "name": "Moon Bracelet I",
+          "price": 5600.00,
+          "stocks": 100,
+          "sku": "10101AAA",
+          "image":  "sparkle-685509_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus" : "In-stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 5,
+          "catalog_id" : 1
+        }
+      ]
     },
     {
       "catalogName" : "Bracelet",
       "description" : "Our bracelet are sized for any ages, designed for ageless style from vintage to modern trends",
       "image":  "beads-3274566_1920.jpg",
       "height": 150,
-      "width" : 150
+      "width" : 150,
+      "id" : 2,
+      "products" : [
+        {
+          "id" : 2000,
+          "name": "Star Bracelet",
+          "price": 500.00,
+          "stocks": 100.00,
+          "sku": "10101CCC",
+          "image":  "facet-1490208_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus": "Lower in stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 5,
+          "catalog_id" : 2
+        },
+        {
+          "id" : 2001,
+          "name": "Sunflower Bracelet",
+          "price": 300.00,
+          "stocks": 100,
+          "sku": "10101BBB",
+          "image":  "glass-665380_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus": "In-stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 4,
+          "catalog_id" : 2
+        }
+      ]
     },
     {
       "catalogName" : "Earrings",
       "description" : "from danglers to simple wearable earrings, we designed them for any occasion and adorning woman to emphasize natural and regal beauty.",
       "image":  "chain-4139525_1920.jpg",
       "height": 150,
-      "width" : 150
+      "width" : 150,
+      "id" : 3,
+      "products" :[
+        {
+          "id" : 4000,
+          "name": "Flowers Bracelet",
+          "price": 1080.00,
+          "stocks": 100,
+          "sku": "10101DDD",
+          "image":  "chain-4139525_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus" : "Enough Stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 2,
+          "catalog_id" : 4
+        },
+        {
+          "id" : 4001,
+          "name": "Flowers Bracelet B",
+          "price": 1050.00,
+          "stocks": 100,
+          "sku": "10101DDD",
+          "image":  "chain-4139525_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus" : "Enough Stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 3,
+          "catalog_id" : 4
+        },
+        {
+          "id" : 4002,
+          "name": "Flowers Bracelet C",
+          "price": 1080.00,
+          "stocks": 100,
+          "sku": "10101DDD",
+          "image":  "chain-4139525_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus" : "Enough Stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 5,
+          "catalog_id" : 4
+        }
+      ]
     },
     {
       "catalogName" : "Rings",
       "description" : "from infinity to infinity that symbolizes bond, love, respect and precious memories",
       "image":  "facet-1490208_1920.jpg",
       "height": 150,
-      "width" : 150
+      "width" : 150,
+      "id" : 4,
+      "products" :[
+        {
+          "id" : 5000,
+          "name": "Moon-Sun Bracelet",
+          "price": 4000.00,
+          "stocks": 100,
+          "sku": "10101AAA",
+          "image":  "beads-3274566_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus": "Lower in stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 4,
+          "catalog_id" : 4
+        },
+        {
+          "id" : 5001,
+          "name": "Moon-Sun Bracelet B",
+          "price": 500.00,
+          "stocks": 100,
+          "sku": "10101AAA",
+          "image":  "beads-3274566_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus": "Lower in stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 3,
+          "catalog_id" : 4
+        },
+        {
+          "id" : 5002,
+          "name": "Moon-Sun Bracelet C",
+          "price": 4000.00,
+          "stocks": 100,
+          "sku": "10101AAA",
+          "image":  "beads-3274566_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus": "Lower in stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 3,
+          "catalog_id" : 4
+        }
+      ]
      },
     {
       "catalogName" : "Accessories",
       "description" : "accessories of our day-to-day items to useful household like key chains, rugs, coaster, table runner, coin purse and more...",
       "image":  "sparkle-685509_1920.jpg",
       "height": 150,
-      "width" : 150
+      "width" : 150,
+      "id" : 5,
+      "products" :[
+        {
+          "product_id" : 6000,
+          "name": "Jewel Bracelet",
+          "price": 5000.00,
+          "stocks": 100,
+          "sku": "10101YYY",
+          "image":  "beads-702250_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus": "In-stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 4,
+          "catalog_id" : 5
+        },
+        {
+          "product_id" : 6001,
+          "name": "Jewel Bracelet B",
+          "price": 300.00,
+          "stocks": 100,
+          "sku": "10101YYY",
+          "image":  "beads-702250_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus": "In-stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 5,
+          "catalog_id" : 5
+        },
+        {
+          "product_id" : 6003,
+          "name": "Jewel Bracelet C",
+          "price": 900.00,
+          "stocks": 100,
+          "sku": "10101YYY",
+          "image":  "beads-702250_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus": "In-stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 4,
+          "catalog_id" : 5
+        },
+        {
+          "product_id" : 6004,
+          "name": "Jewel Bracelet D",
+          "price": 700.00,
+          "stocks": 100,
+          "sku": "10101YYY",
+          "image":  "beads-702250_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus": "In-stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 3,
+          "catalog_id" : 5
+        },
+        {
+          "product_id" : 6005,
+          "name": "Jewel Bracelet E",
+          "price": 500.00,
+          "stocks": 100,
+          "sku": "10101YYY",
+          "image":  "beads-702250_1920.jpg",
+          "description":"testing bracelet....",
+          "inventoryStatus": "In-stock",
+          "height": 150,
+          "width" : 150,
+          "rating": 5,
+          "catalog_id" : 5
+        }
+      ]
     }
   ]
 

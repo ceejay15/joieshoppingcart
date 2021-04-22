@@ -3,8 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {RouteModule} from './route/route/route.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FormsModule} from '@angular/forms';
+// import {ScrollingModule} from '@angular/cdk/scrolling';
 
 import {CarouselModule} from 'primeng/carousel';
+import {DataViewModule} from 'primeng/dataview';
+import {ButtonModule} from 'primeng/button';
+import {PanelModule} from 'primeng/panel';
+import {DropdownModule} from 'primeng/dropdown';
+import {DialogModule} from 'primeng/dialog';
+import {InputTextModule} from 'primeng/inputtext';
+import {RatingModule} from 'primeng/rating';
+import {RippleModule} from 'primeng/ripple';
 
 import {OrderService} from './service/order.service';
 
@@ -20,6 +30,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { CartComponent } from './components/cart/cart.component';
 import { StoreModule } from '@ngrx/store';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { ProductListViewComponent } from './components/product-list-view/product-list-view.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +43,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     CatalogComponent,
     ProductItemComponent,
     CartComponent,
-    CarouselComponent
+    CarouselComponent,
+    ProductListViewComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +52,15 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     RouterModule,
     BrowserAnimationsModule,
     CarouselModule,
+    DataViewModule,
+    PanelModule,
+    DialogModule,
+    DropdownModule,
+    InputTextModule,
+    ButtonModule,
+    RippleModule,
+    RatingModule,
+    FormsModule,
     StoreModule.forRoot({}, {})
   ],
   providers: [OrderService],

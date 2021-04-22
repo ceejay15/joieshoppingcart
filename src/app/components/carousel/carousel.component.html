@@ -13,6 +13,7 @@
 
           <p [visible]="carouselArr.price" class="p-mt-0 p-mb-3">{{carouselArr.price | currency}}</p>
           <p>{{carouselArr.description.substr(0,20)}} ...</p>
+          <div class="text-center"><button class="btn btn-fuschia" (click)="showProductCatalog(carouselArr.id, carouselArr, sliderTitle)">View Products</button></div>
         </div>
   </div>
 </ng-template>

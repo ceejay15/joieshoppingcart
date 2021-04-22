@@ -2,8 +2,8 @@ import { Component, OnInit, OnChanges, SimpleChanges, HostBinding } from '@angul
 // import { trigger, state, style, animate, transition,query, stagger } from '@angular/animations';
 // import { slideInAnimation } from '../../animations/animations';
 import {OrderService} from '../../service/order.service';
+import {CatalogProductService} from '../../service/catalog-product.service';
 
-import  *  as  data  from  '../../json/jsonItems.json';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -82,10 +82,19 @@ export class HomeComponent{
   ];
 
   carouselArr = {};
-  constructor(private order: OrderService) {
+  constructor(private order: OrderService, private cp : CatalogProductService) {
     console.log("HOME", this.quantity);
-    this.carouselArr['products'] = data?.products;
-    this.carouselArr['catalogs'] = data?.catalogs;
+
+    console.log("-------------", this.cp.featured);
+
+    this.cp.featured.subscribe(featured=>{
+      this.carouselArr['products'] = featured;
+    })
+
+    this.cp.catalogs.subscribe(catalogs=>{
+      this.carouselArr['catalogs'] = catalogs;
+      console.log("catalogs???", catalogs);
+    })
    }
 
 

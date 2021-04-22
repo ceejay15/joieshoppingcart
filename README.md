@@ -11,10 +11,10 @@ Features:
 6. Reduce/Increase specific product quantity on Checkout                  ( Done )
 7. Passing updated quantity to Cart Basket                                ( Done )
 8. Disable Reduce/Increase button on specific product on checkout         ( Done )
-9. View Product Catalog                                                   ( Not yet started at the time of repo creation )
+9. View Product Catalog                                                   ( Done )
 10. Product Listing                                                       ( Done )
 11. Catalog Listing                                                       ( Done )
-12. Pagination of product list                                            ( Not yet started at the time of repo creation )
+12. Pagination of product list                                            ( Done - PrimeNG Dataview with sorting, filter search, grid and list view )
 13. Push Notification for email promo subscription                        ( N/A )
 14. Reusable Form                                                         ( N/A )
 15. Form Validation                                                       ( N/A )
@@ -35,3 +35,4 @@ How to:
 2. Install Angular CLI to your desired folder
 3. Run 'npm install' to install necessary package included on package.json
 4. Run 'ng serve --o' to run and open the application to your browser
+5. If there are dependency or package issue always check their respective git or official website documentation on how to install or fix it.

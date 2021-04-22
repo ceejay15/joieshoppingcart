@@ -32,7 +32,6 @@ export class AppComponent implements OnChanges{
 
   cart(){
     this.order.setIsOpen(true);
-    console.log("hello get checkout");
   }
 
 
